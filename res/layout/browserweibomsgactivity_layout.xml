@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/browser_msg_bg_padding">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/first"
+            android:background="?android:selectableItemBackground"
+            android:padding="3dp"
+            android:clickable="true">
+
+            <ImageView
+                android:layout_width="@dimen/browser_msg_avatar_width"
+                android:layout_height="@dimen/browser_msg_avatar_height"
+                android:padding="1px"
+                android:background="@drawable/bg_border1"
+                android:id="@+id/avatar"
+                android:layout_gravity="left|center_vertical"
+                android:layout_marginRight="5dp"/>
+
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="username"
+                android:ellipsize="end"
+                android:layout_marginLeft="8dp"
+                android:drawableEnd="?clickable_flag"
+                android:id="@+id/username"/>
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_below="@id/first"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="w"
+            android:layout_alignParentLeft="true"
+            android:gravity="left"
+            android:textColor="?android:textColorTertiary"
+            android:textIsSelectable="true"
+            android:id="@+id/time"/>
+
+        <TextView
+            android:layout_below="@id/first"
+            android:layout_marginTop="5dp"
+            android:gravity="right"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="sina"
+            android:textColor="?android:textColorTertiary"
+            android:textIsSelectable="true"
+            android:id="@+id/source"/>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/time"
+            android:orientation="vertical"
+            android:id="@+id/second">
+
+            <TextView
+                android:layout_marginTop="8dp"
+                android:id="@+id/content"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="content"
+                android:textSize="16sp"
+                android:lineSpacingMultiplier="1.2"
+                android:textIsSelectable="true"/>
+
+
+            <!-- hack to center progressbar when set indeterminate equal true -->
+
+            <FrameLayout
+                android:layout_marginTop="8dp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="200dp"
+                android:visibility="gone"
+                android:id="@+id/pic_layout">
+
+                <ProgressBar
+                    android:visibility="gone"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="true"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:id="@+id/content_pic_pb"/>
+
+                <ImageView
+                    android:id="@+id/content_pic"
+                    android:padding="3dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="200dp"
+                    android:minHeight="200dp"
+                    android:visibility="gone"
+                    android:clickable="true"
+                    android:layout_gravity="center"
+                    android:adjustViewBounds="true"
+                    android:background="?android:selectableItemBackground"/>
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_below="@id/second"
+            android:layout_marginTop="8dp"
+            android:id="@+id/repost_layout"
+            android:clickable="true"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/browser_msg_repost_line"
+            android:visibility="gone">
+
+            <TextView
+                android:background="?android:selectableItemBackground"
+                android:id="@+id/repost_content"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="content"
+                android:visibility="gone"
+                android:textSize="16sp"
+                android:lineSpacingMultiplier="1.2"/>
+
+            <FrameLayout
+                android:layout_below="@id/repost_content"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:minHeight="200dp"
+                android:id="@+id/repost_pic_layout"
+                android:visibility="gone">
+
+                <ProgressBar
+                    android:visibility="gone"
+                    android:layout_gravity="center"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="true"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:id="@+id/repost_content_pic_pb"/>
+
+                <ImageView
+                    android:padding="3dp"
+                    android:id="@+id/repost_content_pic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="200dp"
+                    android:minHeight="200dp"
+                    android:visibility="gone"
+                    android:clickable="true"
+                    android:background="?android:selectableItemBackground"
+                    android:layout_gravity="center"
+                    android:adjustViewBounds="true"
+                    />
+            </FrameLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:visibility="gone"
+                android:layout_below="@id/repost_pic_layout"
+                android:layout_alignParentRight="true"
+                android:id="@+id/count_layout">
+
+                <TextView
+                    android:id="@+id/repost_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:drawablePadding="4dp"
+                    android:textColor="?android:textColorTertiary"
+                    android:drawableLeft="?timeline_repost_flag"/>
+
+                <TextView
+                    android:id="@+id/comment_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:layout_marginLeft="8dp"
+                    android:drawablePadding="4dp"
+                    android:textColor="?android:textColorTertiary"
+                    android:drawableLeft="?timeline_comment_flag"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/second"
+            android:id="@+id/location"
+            android:visibility="gone"
+            android:onClick="true"
+            android:layout_marginTop="8dp"/>
+
+        <ViewStub
+            android:id="@+id/stub"
+            android:layout_below="@id/location"
+            android:layout_marginTop="4dp"
+            android:inflatedId="@+id/location_mv"
+            android:layout="@layout/browserweibomsgfragment_viewstub_mapview"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"/>
+
+    </RelativeLayout>
+
+
+</ScrollView>
